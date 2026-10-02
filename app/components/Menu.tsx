@@ -7,7 +7,7 @@ import { restaurant } from '../data/restaurant'
 const { categories } = restaurant.menu
 
 export default function Menu() {
-  const [active, setActive] = useState(categories[0].id)
+  const [active, setActive] = useState<string>(categories[0].id)
   const ref = useRef<HTMLElement>(null)
   const inView = useInView(ref, { once: true, margin: '-80px' })
 
