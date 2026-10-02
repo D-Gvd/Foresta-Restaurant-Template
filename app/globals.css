@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --scroll-bar-color: #1F3D29;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar        { width: 6px; }
+::-webkit-scrollbar-track  { background: #080F0A; }
+::-webkit-scrollbar-thumb  { background: #3D6B4E; border-radius: 3px; }
+
+/* Thin horizontal rule */
+.rule-gold {
+  @apply block w-16 h-px bg-gold my-6;
+}
+
+/* Hero text — responsive display size */
+.display-hero {
+  font-size: clamp(3.5rem, 10vw, 10rem);
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+}
+
+/* Section heading */
+.display-section {
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  line-height: 1;
+  letter-spacing: -0.01em;
+}
+
+/* Fade-in for reduced-motion users: honour their preference */
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+
+/* Gallery horizontal scroll snap */
+.gallery-track {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.gallery-track::-webkit-scrollbar { display: none; }
+.gallery-item {
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+}
